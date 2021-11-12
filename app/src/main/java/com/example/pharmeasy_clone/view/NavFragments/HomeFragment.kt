@@ -2,6 +2,7 @@ package com.example.pharmeasy_clone.view.NavFragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,7 +19,6 @@ import com.example.pharmeasy_clone.view.HomeViewModel
 import com.ranzan.pharmaeasyclone.View.Adapters.CategoryAdapter
 import com.ranzan.pharmaeasyclone.View.Adapters.RecommendedAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
-import java.io.Serializable
 
 class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
     private val homeViewModel: HomeViewModel = HomeViewModel()
@@ -59,7 +59,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
 
     override fun detailedData(data: DataModel) {
         val intent = Intent(context, DetailedViewActivity::class.java)
-        intent.putExtra("data", (Serializable)data)
+        intent.putExtra(
+            "data",
+            (Parcelable) data
+        )
 
     }
 
