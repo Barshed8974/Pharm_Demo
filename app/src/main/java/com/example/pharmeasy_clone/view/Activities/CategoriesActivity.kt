@@ -12,6 +12,10 @@ class CategoriesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_categories)
+        //back button press
+        back.setOnClickListener {
+            onBackPressed()
+        }
         //Setting TOp title
         if (intent != null) {
             val cate = intent.getStringExtra("category")

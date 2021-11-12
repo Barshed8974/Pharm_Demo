@@ -1,24 +1,27 @@
 package com.example.pharmeasy_clone.view.Activities
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
-import com.example.pharmeasy_clone.view.Adapters.OnClickListener
+import com.example.pharmeasy_clone.Repository.Database.DataModel
+import com.example.pharmeasy_clone.view.Adapters.Interfaces.OnCategoryClick
 import com.example.pharmeasy_clone.view.HomeViewModel
 import com.ranzan.pharmaeasyclone.View.Adapters.CategoryAdapter
 import kotlinx.android.synthetic.main.activity_category.*
 
-class AllCategoryActivity : AppCompatActivity(), OnClickListener {
+class AllCategoryActivity : AppCompatActivity(), OnCategoryClick {
     private val homeViewModel: HomeViewModel = HomeViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
-
         setCategoryRecyclerView(homeViewModel.getCategory())
+        back.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun setCategoryRecyclerView(list: List<CategoryModel>) {
@@ -29,7 +32,14 @@ class AllCategoryActivity : AppCompatActivity(), OnClickListener {
         }
     }
 
-    override fun onClicked(category: String) {
-        Toast.makeText(CategoryAdapter@ this, category, Toast.LENGTH_SHORT).show()
+    override fun categoryData(category: String) {
+        val intent = Intent(AllCategoryActivity@ this, CategoriesActivity::class.java)
+        intent.putExtra("category", category)
+        startActivity(intent)
     }
+
+    override fun detailedData(data: DataModel) {
+
+    }
+
 }

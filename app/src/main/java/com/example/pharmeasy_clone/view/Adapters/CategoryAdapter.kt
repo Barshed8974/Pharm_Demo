@@ -9,11 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
-import com.example.pharmeasy_clone.view.Adapters.OnClickListener
+import com.example.pharmeasy_clone.view.Adapters.Interfaces.OnCategoryClick
 
 class CategoryAdapter(
     private val list: List<CategoryModel>,
-    private val onClickListener: OnClickListener,
+    private val onCategoryClick: OnCategoryClick,
     val layout: Int
 ) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
@@ -25,7 +25,7 @@ class CategoryAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setData(list[position], onClickListener)
+        holder.setData(list[position], onCategoryClick)
     }
 
     override fun getItemCount(): Int = list.size
@@ -34,11 +34,11 @@ class CategoryAdapter(
         private var img: ImageView = view.findViewById(R.id.categoryImage)
         private var text: TextView = view.findViewById(R.id.categoryText)
         private var layout:LinearLayout=view.findViewById(R.id.categoryLayout)
-        fun setData(data: CategoryModel,onClickListener: OnClickListener) {
+        fun setData(data: CategoryModel, onCategoryClick: OnCategoryClick) {
             img.setImageResource(data.image)
             text.text = data.category
             layout.setOnClickListener{
-                onClickListener.onClicked(data.category)
+                onCategoryClick.categoryData(data.category)
             }
         }
     }
