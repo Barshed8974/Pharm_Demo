@@ -59,10 +59,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
 
     override fun detailedData(data: DataModel) {
         val intent = Intent(context, DetailedViewActivity::class.java)
-        intent.putExtra(
-            "data",
-            (Parcelable) data
-        )
+//        intent.putExtra(
+//            "data",
+////            (Parcelable) data
+//        )
 
     }
 
