@@ -29,6 +29,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
         setDetailedRecyclerView(homeViewModel.getDetailedList())
 
         //view all categories
+
         categoryViewAll.setOnClickListener {
             startActivity(Intent(context, AllCategoryActivity::class.java))
         }
