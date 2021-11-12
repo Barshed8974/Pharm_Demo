@@ -27,7 +27,7 @@ class Login : AppCompatActivity() {
 //        Reference
 
         var currentUser = auth.currentUser
-        if(currentUser != null) {
+        if(currentUser == null) {
             startActivity(Intent(applicationContext, MainActivity::class.java))
             finish()
         }

@@ -38,9 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/search"
-        android:minHeight="48dp"
         app:layout_constraintTop_toBottomOf="@id/ivCart"
-        tools:layout_editor_absoluteX="20dp" />
+        />
 
     <ScrollView
         android:clipToPadding="false"
