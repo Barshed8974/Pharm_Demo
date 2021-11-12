@@ -1,15 +1,16 @@
-package com.example.pharmeasy_clone
+package com.example.pharmeasy_clone.view
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-import com.example.pharmeasy_clone.Fragments.AccountFragment
-import com.example.pharmeasy_clone.Fragments.HealthCareFragment
-import com.example.pharmeasy_clone.Fragments.HomeFragment
-import com.example.pharmeasy_clone.Fragments.LabTestsFragment
-import com.example.pharmeasy_clone.Fragments.NotificationsFragmnet
+import com.example.pharmeasy_clone.view.Fragments.AccountFragment
+import com.example.pharmeasy_clone.view.Fragments.HealthCareFragment
+import com.example.pharmeasy_clone.view.Fragments.HomeFragment
+import com.example.pharmeasy_clone.view.Fragments.LabTestsFragment
+import com.example.pharmeasy_clone.R
+import com.example.pharmeasy_clone.view.Fragments.NotificationsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 0 -> fragment= HomeFragment()
                 1 -> fragment = HealthCareFragment()
                 2 -> fragment = LabTestsFragment()
-                3 -> fragment = NotificationsFragmnet()
+                3 -> fragment = NotificationsFragment()
                 4 -> fragment = AccountFragment()
             }
             supportFragmentManager.beginTransaction().replace(R.id.frameContainer, fragment!!)
