@@ -2,8 +2,6 @@ package com.example.pharmeasy_clone.view.Login
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pharmeasy_clone.R
@@ -56,15 +54,15 @@ class Login : AppCompatActivity() {
     private fun login() {
         var number = phoneNumber.text.toString().trim()
 
-        if (number.isNotEmpty()) {
-            number = "+91 $number"
-            sendVerificationcode(number)
+        if (!number.isNullOrEmpty()) {
+            number = "+91$number"
+            sendVerificationCode(number)
         } else {
             Toast.makeText(this, "Enter mobile number", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun sendVerificationcode(number: String) {
+    private fun sendVerificationCode(number: String) {
         val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(number) // Phone number to verify
             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
