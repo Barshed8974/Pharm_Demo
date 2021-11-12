@@ -1,19 +1,19 @@
-package com.example.pharmeasy_clone.Login
+package com.example.pharmeasy_clone.view.Login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.pharmeasy_clone.Fragments.HomeFragment
-import com.example.pharmeasy_clone.MainActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pharmeasy_clone.R
+import com.example.pharmeasy_clone.view.MainActivity
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import kotlinx.android.synthetic.main.activity_login.*
 import java.util.concurrent.TimeUnit
 
 class Login : AppCompatActivity() {
@@ -22,14 +22,11 @@ class Login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login
-        )
+        setContentView(R.layout.activity_login)
 
         auth= FirebaseAuth.getInstance()
 
 //        Reference
-        val Login=findViewById<Button>(R.id.loginBtn)
-
 
         var currentUser = auth.currentUser
         if(currentUser != null) {
@@ -37,7 +34,7 @@ class Login : AppCompatActivity() {
             finish()
         }
 
-        Login.setOnClickListener{
+        loginBtn.setOnClickListener{
             login()
         }
 
@@ -57,14 +54,13 @@ class Login : AppCompatActivity() {
     }
 
     private fun login() {
-        val mobileNumber=findViewById<EditText>(R.id.phoneNumber)
-        var number=mobileNumber.text.toString().trim()
+        var number = phoneNumber.text.toString().trim()
 
-        if(!number.isEmpty()){
-            number="+91"+number
-            sendVerificationcode (number)
-        }else{
-            Toast.makeText(this,"Enter mobile number", Toast.LENGTH_SHORT).show()
+        if (number.isNotEmpty()) {
+            number = "+91 $number"
+            sendVerificationcode(number)
+        } else {
+            Toast.makeText(this, "Enter mobile number", Toast.LENGTH_SHORT).show()
         }
     }
 

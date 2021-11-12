@@ -18,6 +18,9 @@
             android:name=".view.Activities.AllCategoryActivity"
             android:exported="false" />
         <activity
+            android:name=".view.Login.Login"
+            android:exported="false" />
+        <activity
             android:name=".view.Activities.CategoriesActivity"
             android:exported="false" />
         <activity

@@ -4,7 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pharmeasy_clone.Login.Login
+import com.example.pharmeasy_clone.R
+import com.example.pharmeasy_clone.view.Login.Login
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
