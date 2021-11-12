@@ -1,0 +1,2 @@
+com/example/pharmeasy_clone/BuildConfig.java
+ com.example.pharmeasy_clone.BuildConfig
