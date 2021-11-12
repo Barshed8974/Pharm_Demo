@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pharmeasy_clone.R
+import com.example.pharmeasy_clone.Login.Login
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         var animation2 = AnimationUtils.loadAnimation(applicationContext, R.anim.logo)
         var animation3 = AnimationUtils.loadAnimation(applicationContext, R.anim.logo)
         var animation4 = AnimationUtils.loadAnimation(applicationContext, R.anim.logo)
-        
+
         imageView.animation = animation1
         imageView2.animation = animation2
         imageView3.animation = animation3
@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
 
         GlobalScope.launch {
             delay(3000)
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            val intent = Intent(this@SplashActivity, Login::class.java)
             startActivity(intent);
             finish();
         }
