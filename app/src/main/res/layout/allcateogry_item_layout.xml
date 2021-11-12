@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/categoryLayout"
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/catImage"
+        android:id="@+id/categoryImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:padding="10dp"
         android:src="@drawable/img" />
 
     <TextView
-        android:id="@+id/catText"
+        android:id="@+id/categoryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -20,4 +21,5 @@
         android:text="Covid"
         android:textSize="18sp"
         android:textStyle="bold" />
+
 </LinearLayout>

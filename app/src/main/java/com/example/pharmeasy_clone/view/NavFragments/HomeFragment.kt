@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
 import com.example.pharmeasy_clone.Repository.Database.DataModel
-import com.example.pharmeasy_clone.view.Activities.AllCategoriesActivity
-import com.example.pharmeasy_clone.view.Activities.CategoryActivity
+import com.example.pharmeasy_clone.view.Activities.CategoriesActivity
+import com.example.pharmeasy_clone.view.Activities.AllCategoryActivity
 import com.example.pharmeasy_clone.view.Adapters.OnClickListener
 import com.example.pharmeasy_clone.view.HomeViewModel
 import com.ranzan.pharmaeasyclone.View.Adapters.CategoryAdapter
@@ -29,7 +29,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnClickListener {
 
         //view all categories
         categoryViewAll.setOnClickListener {
-            startActivity(Intent(context, CategoryActivity::class.java))
+            startActivity(Intent(context, AllCategoryActivity::class.java))
         }
     }
 
@@ -42,7 +42,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnClickListener {
     }
 
     private fun setCategoryRecyclerView(list: List<CategoryModel>) {
-        val categoryAdapter = CategoryAdapter(list, this)
+        val categoryAdapter = CategoryAdapter(list, this,R.layout.shop_category_item)
         categoryRecyclerView.apply {
             isNestedScrollingEnabled = false
             adapter = categoryAdapter
@@ -51,7 +51,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnClickListener {
     }
 
     override fun onClicked(category: String) {
-        val intent = Intent(context, AllCategoriesActivity::class.java)
+        val intent = Intent(context, CategoriesActivity::class.java)
         intent.putExtra("category", category)
         startActivity(intent)
     }

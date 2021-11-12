@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PharmEasy_Clone">
         <activity
-            android:name=".view.Activities.CategoryActivity"
+            android:name=".view.Activities.AllCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.Activities.AllCategoriesActivity"
+            android:name=".view.Activities.CategoriesActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"

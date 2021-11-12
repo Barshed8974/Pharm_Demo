@@ -11,17 +11,21 @@ import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
 import com.example.pharmeasy_clone.view.Adapters.OnClickListener
 
-class CategoryAdapter(private val list: List<CategoryModel>, private val onClickListener: OnClickListener) :
+class CategoryAdapter(
+    private val list: List<CategoryModel>,
+    private val onClickListener: OnClickListener,
+    val layout: Int
+) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.shop_category_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(layout, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setData(list[position],onClickListener)
+        holder.setData(list[position], onClickListener)
     }
 
     override fun getItemCount(): Int = list.size
