@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
+import com.example.pharmeasy_clone.view.Adapters.OnClickListener
 
-class CategoryAdapter(private val list: List<CategoryModel>) :
+class CategoryAdapter(private val list: List<CategoryModel>, private val onClickListener: OnClickListener) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,18 +21,21 @@ class CategoryAdapter(private val list: List<CategoryModel>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setData(list[position])
+        holder.setData(list[position],onClickListener)
     }
 
     override fun getItemCount(): Int = list.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private var img: ImageView = view.findViewById(R.id.categoryImage)
-        private var t: TextView = view.findViewById(R.id.categoryText)
-
-        fun setData(data: CategoryModel) {
-            img.setImageResource(data.img)
-            t.text = data.name
+        private var text: TextView = view.findViewById(R.id.categoryText)
+        private var layout:LinearLayout=view.findViewById(R.id.categoryLayout)
+        fun setData(data: CategoryModel,onClickListener: OnClickListener) {
+            img.setImageResource(data.image)
+            text.text = data.category
+            layout.setOnClickListener{
+                onClickListener.onClicked(data.category)
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.pharmeasy_clone.view.Fragments
+package com.example.pharmeasy_clone.view.NavFragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

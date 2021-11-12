@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Fragments.HomeFragment">
+    tools:context=".view.NavFragments.HomeFragment">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#015151"
+        android:background="@color/appColor"
         app:layout_constraintBottom_toBottomOf="@id/searchBar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -28,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:src="@drawable/ic_cart"
+        android:src="@drawable/ic_shopping_cart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,12 +37,14 @@
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_search"
+        android:drawableLeft="@drawable/search"
         android:minHeight="48dp"
         app:layout_constraintTop_toBottomOf="@id/ivCart"
         tools:layout_editor_absoluteX="20dp" />
 
     <ScrollView
+        android:clipToPadding="false"
+        android:paddingBottom="200dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/searchBar">
@@ -63,7 +66,8 @@
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                android:layout_height="60dp">
+                android:layout_marginTop="10dp"
+                android:layout_height="100dp">
 
                 <ImageView
                     android:layout_weight="1"
@@ -74,7 +78,6 @@
                 <ImageView
                     android:layout_weight="1"
                     android:src="@drawable/img"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -90,22 +93,41 @@
                 android:id="@+id/getPlus"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_margin="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/img" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Shop By Category"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Shop By Category"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/categoryViewAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:padding="4dp"
+                    android:text="View All"
+                    android:textColor="@color/viewAll"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categoryRecyclerView"
@@ -138,6 +160,7 @@
                 android:layout_height="150dp" />
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -150,10 +173,7 @@
                 android:id="@+id/healthArticlesRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
-
-
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

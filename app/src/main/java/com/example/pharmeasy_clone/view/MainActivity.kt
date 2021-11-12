@@ -5,12 +5,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-import com.example.pharmeasy_clone.view.Fragments.AccountFragment
-import com.example.pharmeasy_clone.view.Fragments.HealthCareFragment
-import com.example.pharmeasy_clone.view.Fragments.HomeFragment
-import com.example.pharmeasy_clone.view.Fragments.LabTestsFragment
+import com.example.pharmeasy_clone.view.NavFragments.AccountFragment
+import com.example.pharmeasy_clone.view.NavFragments.HealthCareFragment
+import com.example.pharmeasy_clone.view.NavFragments.HomeFragment
+import com.example.pharmeasy_clone.view.NavFragments.LabTestsFragment
 import com.example.pharmeasy_clone.R
-import com.example.pharmeasy_clone.view.Fragments.NotificationsFragment
+import com.example.pharmeasy_clone.view.NavFragments.NotificationsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

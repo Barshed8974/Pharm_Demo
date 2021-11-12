@@ -1,0 +1,60 @@
+package com.example.pharmeasy_clone.view.NavFragments
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.pharmeasy_clone.R
+import com.example.pharmeasy_clone.Repository.Database.CategoryModel
+import com.example.pharmeasy_clone.Repository.Database.DataModel
+import com.example.pharmeasy_clone.view.Activities.AllCategoriesActivity
+import com.example.pharmeasy_clone.view.Activities.CategoryActivity
+import com.example.pharmeasy_clone.view.Adapters.OnClickListener
+import com.example.pharmeasy_clone.view.HomeViewModel
+import com.ranzan.pharmaeasyclone.View.Adapters.CategoryAdapter
+import com.ranzan.pharmaeasyclone.View.Adapters.RecommendedAdapter
+import kotlinx.android.synthetic.main.fragment_home.*
+
+
+class HomeFragment : Fragment(R.layout.fragment_home), OnClickListener {
+    private val homeViewModel: HomeViewModel = HomeViewModel()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setCategoryRecyclerView(homeViewModel.getCategory())
+        setDetailedRecyclerView(homeViewModel.getDetailedList())
+
+        //view all categories
+        categoryViewAll.setOnClickListener {
+            startActivity(Intent(context, CategoryActivity::class.java))
+        }
+    }
+
+    private fun setDetailedRecyclerView(list: List<DataModel>) {
+        val recommendedAdapter = RecommendedAdapter(list)
+        recommendedRecyclerView.apply {
+            adapter = recommendedAdapter
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        }
+    }
+
+    private fun setCategoryRecyclerView(list: List<CategoryModel>) {
+        val categoryAdapter = CategoryAdapter(list, this)
+        categoryRecyclerView.apply {
+            isNestedScrollingEnabled = false
+            adapter = categoryAdapter
+            layoutManager = GridLayoutManager(context, 4)
+        }
+    }
+
+    override fun onClicked(category: String) {
+        val intent = Intent(context, AllCategoriesActivity::class.java)
+        intent.putExtra("category", category)
+        startActivity(intent)
+    }
+
+
+}
