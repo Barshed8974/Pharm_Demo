@@ -35,7 +35,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
     }
 
     private fun setDetailedRecyclerView(list: List<DataModel>) {
-        val recommendedAdapter = RecommendedAdapter(list)
+        val recommendedAdapter = RecommendedAdapter(list,this)
         recommendedRecyclerView.apply {
             adapter = recommendedAdapter
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
