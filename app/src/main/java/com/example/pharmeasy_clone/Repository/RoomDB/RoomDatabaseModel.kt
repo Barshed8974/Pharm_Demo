@@ -22,8 +22,6 @@ abstract class RoomDatabaseModel : RoomDatabase() {
 
                 builder.fallbackToDestructiveMigration()
                 INSTANCE = builder.build()
-
-                return INSTANCE!!
             }
             return INSTANCE!!
         }

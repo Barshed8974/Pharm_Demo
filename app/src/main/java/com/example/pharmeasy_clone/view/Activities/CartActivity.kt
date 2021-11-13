@@ -10,6 +10,9 @@ import com.example.pharmeasy_clone.ViewModel.RoomDBViewModel
 import com.example.pharmeasy_clone.view.Adapters.CartAdapter
 import com.example.pharmeasy_clone.view.Adapters.Interfaces.CartOnClick
 import kotlinx.android.synthetic.main.activity_cart.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class CartActivity : AppCompatActivity(), CartOnClick {
     private lateinit var roomDBViewModel: RoomDBViewModel
@@ -22,7 +25,6 @@ class CartActivity : AppCompatActivity(), CartOnClick {
         roomDBViewModel.getCartData().observe(this, Observer {
             list = it
             setCartRecyclerView(list)
-
         })
     }
 
@@ -35,10 +37,13 @@ class CartActivity : AppCompatActivity(), CartOnClick {
     }
 
     override fun onDelete(roomEntity: RoomEntity) {
-        roomDBViewModel.insertData(roomEntity)
+        roomDBViewModel.deleteData(roomEntity)
     }
 
     override fun onClick(roomEntity: RoomEntity) {
-        roomDBViewModel.getCartItem(roomEntity.id!!)
+        CoroutineScope(Dispatchers.IO).launch {
+            roomDBViewModel.getCartItem(roomEntity.id!!)
+        }
+
     }
 }

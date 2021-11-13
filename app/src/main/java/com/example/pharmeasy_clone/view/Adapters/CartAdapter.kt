@@ -38,10 +38,10 @@ class CartAdapter(var list: List<RoomEntity>, private val cartOnClick: CartOnCli
         private val layout: ConstraintLayout = view.findViewById(R.id.layout)
         fun setData(data: RoomEntity, cartOnClick: CartOnClick) {
             data.apply {
-                cartImage.setImageResource(data.img)
-                cartName.text = name
-                cartShot.text = shortDescription
-                cartPrice.text = "₹ $price"
+//                cartImage.setImageResource(data.img)
+//                cartName.text = name
+//                cartShot.text = shortDescription
+//                cartPrice.text = "₹ $price"
                 delete.setOnClickListener {
                     cartOnClick.onDelete(data)
                 }

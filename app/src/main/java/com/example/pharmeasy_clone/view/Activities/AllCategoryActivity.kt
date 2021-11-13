@@ -39,7 +39,7 @@ class AllCategoryActivity : AppCompatActivity(), OnCategoryClick {
     }
 
     override fun detailedData(data: DataModel) {
-
+        //do nothing
     }
 
 }

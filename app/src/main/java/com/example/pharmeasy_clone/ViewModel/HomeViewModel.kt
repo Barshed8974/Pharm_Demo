@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
 import com.example.pharmeasy_clone.Repository.Database.CreatingData
 import com.example.pharmeasy_clone.Repository.Database.DataModel
-import com.example.pharmeasy_clone.Repository.RoomDB.RoomDao
-import com.example.pharmeasy_clone.Repository.RoomDB.RoomDatabaseModel
 import retrofit2.Call
 import retrofit2.Callback
 

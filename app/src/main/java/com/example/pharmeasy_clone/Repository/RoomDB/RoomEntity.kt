@@ -25,7 +25,7 @@ data class RoomEntity(
     val uses: String,
     @ColumnInfo(name = "Quantity")
     val quantity: Int,
-    @ColumnInfo(name="Data Model")
+    @ColumnInfo(name = "Data Model")
     val dataModel: DataModel
 ) {
     @ColumnInfo(name = "ID")
