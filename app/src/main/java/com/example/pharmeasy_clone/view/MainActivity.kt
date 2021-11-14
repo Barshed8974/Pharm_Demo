@@ -41,9 +41,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(getData::class.java)
 
-        //Log.d("Ami",com.example.pharmeasy_clone.Value.getNum()!!)
-        //checking user is present or not
-        checkUser()
+        Log.d("Ami",Value.getNum()!!)
         //intitialize dao
         cartDAO=CartDB.getDatabaseObject(this).getTaskDAO()
         repository= MyCartRepo(cartDAO)
@@ -75,28 +73,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkUser() {
-        val scoresRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child(Value.getNum()+"")
-        scoresRef.orderByValue().addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(!snapshot.exists())
-                {
-                    var model= model("Calpol","Fever","Img","54","54","54")
-                    var createUser=CreateUser(model,"item1")
-                    createUser.addData()
-                }
-                else
-                {
-                    retriveData()
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
-    }
 
     private fun retriveData() {
         viewModel.getResponseUsingCallback(object : FirebaseCallback {

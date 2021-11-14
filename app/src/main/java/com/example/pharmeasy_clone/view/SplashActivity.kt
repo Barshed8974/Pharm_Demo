@@ -27,8 +27,8 @@ class SplashActivity : AppCompatActivity() {
         imageView4.animation = animation4
 
         GlobalScope.launch {
-            delay(10)
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            delay(3000)
+            val intent = Intent(this@SplashActivity, Login::class.java)
             startActivity(intent);
             finish();
         }

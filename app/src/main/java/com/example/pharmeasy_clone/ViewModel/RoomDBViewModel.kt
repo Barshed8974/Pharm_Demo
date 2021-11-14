@@ -3,9 +3,13 @@ package com.example.pharmeasy_clone.ViewModel
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.disklrucache.DiskLruCache
 import com.example.pharmeasy_clone.Repository.RoomDB.RoomDao
 import com.example.pharmeasy_clone.Repository.RoomDB.RoomDatabaseModel
 import com.example.pharmeasy_clone.Repository.RoomDB.RoomEntity
+import com.example.pharmeasy_clone.Value
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,6 +27,9 @@ class RoomDBViewModel(context: Context) : ViewModel() {
     fun deleteData(roomEntity: RoomEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             dataDAO.deleteData(roomEntity)
+            //delete from fire base
+            FirebaseDatabase.getInstance().reference.child(Value.getNum()+"")
+                .child("Buy").child(roomEntity.name).removeValue()
         }
     }
 

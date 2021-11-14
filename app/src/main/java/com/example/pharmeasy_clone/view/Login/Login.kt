@@ -25,13 +25,7 @@ class Login : AppCompatActivity() {
 
         auth= FirebaseAuth.getInstance()
 
-//        Reference
-
-        var currentUser = auth.currentUser
-        if(currentUser == null) {
-            startActivity(Intent(applicationContext, MainActivity::class.java))
-            finish()
-        }
+        //Reference
 
         loginBtn.setOnClickListener{
             login()
@@ -59,7 +53,6 @@ class Login : AppCompatActivity() {
             number = "+91$number"
             ///saving number
             Value.setNum(number)
-            startActivity(Intent(applicationContext, MainActivity::class.java))
             sendVerificationCode(number)
         } else {
             Toast.makeText(this, "Enter mobile number", Toast.LENGTH_SHORT).show()
