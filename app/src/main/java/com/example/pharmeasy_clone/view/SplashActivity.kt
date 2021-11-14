@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
 
         GlobalScope.launch {
             delay(3000)
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            val intent = Intent(this@SplashActivity, Login::class.java)
             startActivity(intent);
             finish();
         }

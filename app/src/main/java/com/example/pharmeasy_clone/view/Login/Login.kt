@@ -1,11 +1,11 @@
 package com.example.pharmeasy_clone.view.Login
 
-import com.example.pharmeasy_clone.Value
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pharmeasy_clone.R
+import com.example.pharmeasy_clone.Value
 import com.example.pharmeasy_clone.view.MainActivity
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -13,6 +13,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.*
 import java.util.concurrent.TimeUnit
 
 class Login : AppCompatActivity() {
@@ -28,7 +29,8 @@ class Login : AppCompatActivity() {
         //Reference
 
         loginBtn.setOnClickListener{
-            login()
+//            login()
+            loginDemo()
         }
 
         // Callback function for Phone Auth
@@ -44,6 +46,24 @@ class Login : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun loginDemo() {
+        var number = phoneNumber.text.toString().trim()
+
+        if (!number.isNullOrEmpty()) {
+            number = "+91$number"
+            ///saving number
+            Value.setNum(number)
+            GlobalScope.launch {
+                delay(1000)
+                val intent = Intent(this@Login, MainActivity::class.java)
+                startActivity(intent);
+                finish();
+            }
+        } else {
+            Toast.makeText(this, "Enter mobile number", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun login() {

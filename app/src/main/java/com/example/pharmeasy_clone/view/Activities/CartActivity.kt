@@ -28,7 +28,12 @@ class CartActivity : AppCompatActivity(), CartOnClick {
             list = it
             setCartRecyclerView(list)
         })
-
+        back.setOnClickListener {
+            onBackPressed()
+        }
+        ivSearch.setOnClickListener {
+            startActivity(Intent(CartActivity@ this, SearchActivity::class.java))
+        }
         placeOrder.setOnClickListener {
             startActivity(Intent(CartActivity@ this, PlaceOrderActivity::class.java))
         }
