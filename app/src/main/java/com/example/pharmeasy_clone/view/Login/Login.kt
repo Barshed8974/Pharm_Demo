@@ -1,5 +1,6 @@
 package com.example.pharmeasy_clone.view.Login
 
+import Value
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -56,6 +57,9 @@ class Login : AppCompatActivity() {
 
         if (!number.isNullOrEmpty()) {
             number = "+91$number"
+            ///saving number
+            Value.setNum(number)
+            startActivity(Intent(applicationContext, MainActivity::class.java))
             sendVerificationCode(number)
         } else {
             Toast.makeText(this, "Enter mobile number", Toast.LENGTH_SHORT).show()
