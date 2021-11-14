@@ -1,6 +1,5 @@
 package com.example.pharmeasy_clone.view
 
-
 //import com.example.myapplication.Repo.FirebaseCallback
 //import com.example.pharmeasy_clone.ViewModel.Firebase.getData
 import android.os.Bundle
@@ -29,8 +28,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        viewModel = ViewModelProvider(this).get(getData::class.java)
-
-        Log.d("Ami",Value.getNum()!!)
         //intitialize dao
         cartDAO=CartDB.getDatabaseObject(this).getTaskDAO()
         repository= MyCartRepo(cartDAO)

@@ -77,7 +77,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
         categoryRecyclerView.apply {
             isNestedScrollingEnabled = true
             adapter = categoryAdapter
-            layoutManager = GridLayoutManager(context, 2)
+            layoutManager = GridLayoutManager(context, 4)
         }
     }
 

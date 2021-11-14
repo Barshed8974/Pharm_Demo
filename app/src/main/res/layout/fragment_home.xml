@@ -141,6 +141,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:nestedScrollingEnabled="false"
                 android:id="@+id/categoryRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -159,7 +160,6 @@
                 android:id="@+id/recommendedRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/ads2"

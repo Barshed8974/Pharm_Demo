@@ -44,6 +44,7 @@ class DetailedViewActivity : AppCompatActivity() {
                     .placeholder(R.drawable.ic_broken_image).into(detailedImage)
             }
         }
+
         addToCart.setOnClickListener {
             data.apply {
                 val roomEntity = RoomEntity(price, name, img, category, description, 1)
@@ -52,7 +53,6 @@ class DetailedViewActivity : AppCompatActivity() {
             }
             addToCart.text = "Added To Cart"
             Toast.makeText(applicationContext, "Added To Cart", Toast.LENGTH_SHORT).show()
-            addToCart
             addToCart.isClickable = false
         }
     }
