@@ -2,6 +2,7 @@ package com.example.pharmeasy_clone.Repository.RoomDB
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.pharmeasy_clone.view.Activities.SearchActivity
 
 @Dao
 interface RoomDao {
@@ -19,4 +20,14 @@ interface RoomDao {
 
     @Query("select * from cart where id=:id")
     fun getCartItem(id: Int): RoomEntity
+
+
+    @Query("select * from `search data`")
+    fun getSearchList(): LiveData<List<SearchEntity>>
+
+    @Delete
+    fun deleteSearch(searchEntity: SearchEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertData(searchEntity: SearchEntity)
 }

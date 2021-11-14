@@ -12,7 +12,7 @@ import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.DataModel
 import com.example.pharmeasy_clone.view.Adapters.Interfaces.GetDetails
 
-class DetailAdapter(private val list: List<DataModel>, private val getDetails: GetDetails) :
+class DetailAdapter(private var list: ArrayList<DataModel>, private val getDetails: GetDetails) :
     RecyclerView.Adapter<DetailAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,5 +43,11 @@ class DetailAdapter(private val list: List<DataModel>, private val getDetails: G
                 getDetails.getDetailedView(data)
             }
         }
+    }
+
+    fun updateData(updatedList: ArrayList<DataModel>) {
+        list.clear()
+        list = updatedList
+        notifyDataSetChanged()
     }
 }

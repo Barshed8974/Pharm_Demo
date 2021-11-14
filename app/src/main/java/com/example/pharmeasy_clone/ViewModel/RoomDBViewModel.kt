@@ -10,6 +10,7 @@ import com.example.pharmeasy_clone.Repository.RoomDB.RoomEntity
 import com.example.pharmeasy_clone.Value
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import com.example.pharmeasy_clone.Repository.RoomDB.SearchEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -46,4 +47,21 @@ class RoomDBViewModel(context: Context) : ViewModel() {
     fun getCartItem(id: Int): RoomEntity {
         return dataDAO.getCartItem(id)
     }
+
+    fun getSearchList(): LiveData<List<SearchEntity>> {
+        return dataDAO.getSearchList()
+    }
+
+    fun deleteSearch(searchEntity: SearchEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            dataDAO.deleteSearch(searchEntity)
+        }
+    }
+
+    fun insertSearch(searchEntity: SearchEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            dataDAO.insertData(searchEntity)
+        }
+    }
+
 }

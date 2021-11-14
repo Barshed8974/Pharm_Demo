@@ -1,8 +1,8 @@
 package com.example.pharmeasy_clone.Repository.Database
 
 class CreatingData {
-    private var list = mutableListOf<DataModel>()
-    fun buildData(): List<DataModel> {
+    private var list = ArrayList<DataModel>()
+    fun buildData(): ArrayList<DataModel> {
         list.add(
             DataModel(
                 898,
