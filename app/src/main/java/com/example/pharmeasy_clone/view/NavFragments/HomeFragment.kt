@@ -75,9 +75,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
 
         val categoryAdapter = CategoryAdapter(list, this, R.layout.shop_category_item)
         categoryRecyclerView.apply {
-            isNestedScrollingEnabled = false
+            isNestedScrollingEnabled = true
             adapter = categoryAdapter
-            layoutManager = GridLayoutManager(context, 4)
+            layoutManager = GridLayoutManager(context, 2)
         }
     }
 
