@@ -1,6 +1,5 @@
 package com.example.pharmeasy_clone.ViewModel.Firebase
 
-import com.example.pharmeasy_clone.FirebasbeModel.model
 import com.example.pharmeasy_clone.Repository.RoomDB.RoomEntity
 import com.example.pharmeasy_clone.Value
 import com.google.firebase.database.FirebaseDatabase

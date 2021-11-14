@@ -1,36 +1,25 @@
 package com.example.pharmeasy_clone.view
 
 
-import com.example.pharmeasy_clone.Value
+//import com.example.myapplication.Repo.FirebaseCallback
+//import com.example.pharmeasy_clone.ViewModel.Firebase.getData
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-import com.example.myapplication.Repo.FirebaseCallback
 import com.example.pharmeasy_clone.CartData.CartDB
 import com.example.pharmeasy_clone.CartData.DAO
 import com.example.pharmeasy_clone.FirebasbeModel.ResponseFB
-import com.example.pharmeasy_clone.FirebasbeModel.model
-import com.example.pharmeasy_clone.view.NavFragments.AccountFragment
-import com.example.pharmeasy_clone.view.NavFragments.HealthCareFragment
-import com.example.pharmeasy_clone.view.NavFragments.HomeFragment
-import com.example.pharmeasy_clone.view.NavFragments.LabTestsFragment
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.CartRepo.MyCartRepo
+import com.example.pharmeasy_clone.Value
 import com.example.pharmeasy_clone.ViewModel.CartViewModel.CartViewModel
-import com.example.pharmeasy_clone.ViewModel.Firebase.CreateUser
-import com.example.pharmeasy_clone.ViewModel.Firebase.getData
-import com.example.pharmeasy_clone.view.NavFragments.NotificationsFragment
-import com.google.firebase.database.*
+import com.example.pharmeasy_clone.view.NavFragments.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: getData
+    //    private lateinit var viewModel: getData
     var TAG="TAG"
     lateinit var repository : MyCartRepo
     lateinit var cartDAO: DAO
@@ -39,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProvider(this).get(getData::class.java)
+//        viewModel = ViewModelProvider(this).get(getData::class.java)
 
         Log.d("Ami",Value.getNum()!!)
         //intitialize dao
@@ -74,20 +63,20 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun retriveData() {
-        viewModel.getResponseUsingCallback(object : FirebaseCallback {
-            override fun onResponse(responseFB: ResponseFB) {
-                CoroutineScope(Dispatchers.IO).launch{
-                    print(responseFB)
-                }
-            }
-        })
-    }
+//    private fun retriveData() {
+//        viewModel.getResponseUsingCallback(object : FirebaseCallback {
+//            override fun onResponse(responseFB: ResponseFB) {
+//                CoroutineScope(Dispatchers.IO).launch{
+//                    print(responseFB)
+//                }
+//            }
+//        })
+//    }
 
     private fun print(response: ResponseFB) {
 
         response.products?.let { products ->
-            products.forEach{ product ->
+            products.forEach { product ->
                 product.name?.let {
                     Log.i(TAG, it)
                 }
