@@ -36,6 +36,7 @@ class HomeViewModel : ViewModel() {
         return CreatingData().buildCategory()
     }
 
+    fun getBanner(): List<String> = CreatingData().buildAds()
 
 
 }

@@ -1,16 +1,16 @@
 package com.example.pharmeasy_clone.Repository.Database
 
 import android.os.Parcelable
+import androidx.room.Entity
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class DataModel(
     val price: Int,
     val name: String,
-    val img: Int,
+    val img: String,
     val category: String,
-    val shortDescription:String,
     val description: String,
-    val keyBenefits: String,
-    val uses: String,
     ): Parcelable
+
+

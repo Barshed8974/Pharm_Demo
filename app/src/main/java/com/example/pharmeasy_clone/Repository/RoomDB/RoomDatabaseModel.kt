@@ -19,11 +19,10 @@ abstract class RoomDatabaseModel : RoomDatabase() {
                     RoomDatabaseModel::class.java,
                     "cart"
                 )
-
                 builder.fallbackToDestructiveMigration()
                 INSTANCE = builder.build()
-            }
-            return INSTANCE!!
+                return INSTANCE!!
+            } else return INSTANCE!!
         }
     }
 }

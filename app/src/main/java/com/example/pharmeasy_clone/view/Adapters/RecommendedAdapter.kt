@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.DataModel
 import com.example.pharmeasy_clone.view.Adapters.Interfaces.OnCategoryClick
@@ -19,7 +20,7 @@ class RecommendedAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.detailed_item_view, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.recommended_item_view, parent, false)
         return ViewHolder(view)
     }
 
@@ -27,19 +28,17 @@ class RecommendedAdapter(
         holder.setData(list[position], clickListener)
     }
 
-    override fun getItemCount(): Int = 10
+    override fun getItemCount(): Int = list.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val layout: LinearLayout = view.findViewById(R.id.recommendedLayout)
         private val img: ImageView = view.findViewById(R.id.dImage)
         private val name: TextView = view.findViewById(R.id.dText)
-        private val shortDescription: TextView = view.findViewById(R.id.dShortDescription)
         private val price: TextView = view.findViewById(R.id.dPrice)
 
         fun setData(data: DataModel, onClickListener: OnCategoryClick) {
-            img.setImageResource(data.img)
+            Glide.with(img).load(data.img).placeholder(R.drawable.ic_broken_image).into(img)
             name.text = data.name
-            shortDescription.text = data.shortDescription
             price.text = "₹ ${data.price}"
             layout.setOnClickListener {
                 onClickListener.detailedData(data)

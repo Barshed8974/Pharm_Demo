@@ -9,29 +9,23 @@
 
     <ImageView
         android:id="@+id/dImage"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:padding="5dp"
         android:layout_height="100dp"
         android:background="@drawable/category_image_frame"
         android:src="@drawable/img" />
 
     <TextView
+        android:layout_width="100dp"
         android:id="@+id/dText"
-        android:layout_width="wrap_content"
+        android:maxLines="2"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:padding="4dp"
-        android:text="WOmen"
+        android:text="Text"
         android:textSize="15sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/dShortDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Short D"
-        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/dPrice"

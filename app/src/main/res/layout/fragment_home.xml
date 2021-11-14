@@ -56,8 +56,10 @@
             android:orientation="vertical">
 
             <androidx.viewpager2.widget.ViewPager2
+                android:scrollbars="none"
                 android:id="@+id/ads"
                 android:layout_width="match_parent"
+                android:layout_margin="10dp"
                 android:layout_height="150dp" />
 
             <LinearLayout
@@ -91,7 +93,7 @@
             <ImageView
                 android:id="@+id/getPlus"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="5dp"
@@ -138,6 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="Recommended For you"
+                android:layout_marginTop="50dp"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -153,10 +156,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/ads3"
-                android:layout_width="match_parent"
-                android:layout_height="150dp" />
 
             <TextView
                 android:layout_marginTop="10dp"

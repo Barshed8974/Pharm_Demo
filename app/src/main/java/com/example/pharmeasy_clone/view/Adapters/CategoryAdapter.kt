@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
 import com.example.pharmeasy_clone.view.Adapters.Interfaces.OnCategoryClick
@@ -35,7 +36,7 @@ class CategoryAdapter(
         private var text: TextView = view.findViewById(R.id.categoryText)
         private var layout:LinearLayout=view.findViewById(R.id.categoryLayout)
         fun setData(data: CategoryModel, onCategoryClick: OnCategoryClick) {
-            img.setImageResource(data.image)
+            Glide.with(img).load(data.image).placeholder(R.drawable.ic_broken_image).into(img)
             text.text = data.category
             layout.setOnClickListener{
                 onCategoryClick.categoryData(data.category)

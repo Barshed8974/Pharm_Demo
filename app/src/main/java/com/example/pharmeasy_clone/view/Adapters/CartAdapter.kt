@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.RoomDB.RoomEntity
 import com.example.pharmeasy_clone.view.Adapters.Interfaces.CartOnClick
@@ -32,16 +33,15 @@ class CartAdapter(var list: List<RoomEntity>, private val cartOnClick: CartOnCli
     class CartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val cartImage: ImageView = view.findViewById(R.id.cartImage)
         private val cartName: TextView = view.findViewById(R.id.cartName)
-        private val cartShot: TextView = view.findViewById(R.id.cartShort)
         private val cartPrice: TextView = view.findViewById(R.id.cartPrice)
         private val delete: ImageButton = view.findViewById(R.id.imageButton)
         private val layout: ConstraintLayout = view.findViewById(R.id.layout)
         fun setData(data: RoomEntity, cartOnClick: CartOnClick) {
             data.apply {
-//                cartImage.setImageResource(data.img)
-//                cartName.text = name
-//                cartShot.text = shortDescription
-//                cartPrice.text = "₹ $price"
+                Glide.with(cartImage).load(img).placeholder(R.drawable.ic_broken_image)
+                    .into(cartImage)
+                cartName.text = name
+                cartPrice.text = "₹ $price"
                 delete.setOnClickListener {
                     cartOnClick.onDelete(data)
                 }

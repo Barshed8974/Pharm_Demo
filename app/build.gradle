@@ -4,7 +4,6 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
-
 }
 
 android {
@@ -79,12 +78,20 @@ dependencies {
 
 
     //Room
-    implementation 'android.arch.persistence.room:runtime:1.0.0-alpha1'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0-alpha1'
-    //lifeCycle
-    implementation 'android.arch.lifecycle:extensions:1.0.0-alpha1'
-    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-alpha1'
-    //testMigration
-    testImplementation'android.arch.persistence.room:testing:1.0.0-alpha1'
+    def jetpack_version = "2.1.0"
+    def anko_version = '0.10.0'
+    implementation "androidx.room:room-runtime:$jetpack_version"
+    implementation "androidx.room:room-ktx:$jetpack_version"
+    kapt "androidx.room:room-compiler:$jetpack_version"
+    kapt "com.android.databinding:compiler:$jetpack_version"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+
+
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
 
 }

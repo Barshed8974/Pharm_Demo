@@ -3,10 +3,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven {
-            // For Room Persistence Library
-            url "https://maven.google.com"
-        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.3"

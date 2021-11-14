@@ -12,7 +12,7 @@ import com.example.pharmeasy_clone.view.HomeViewModel
 import com.ranzan.pharmaeasyclone.View.Adapters.CategoryAdapter
 import kotlinx.android.synthetic.main.activity_category.*
 
-class AllCategoryActivity : AppCompatActivity(), OnCategoryClick {
+class AllCategoriesViewActivity : AppCompatActivity(), OnCategoryClick {
     private val homeViewModel: HomeViewModel = HomeViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class AllCategoryActivity : AppCompatActivity(), OnCategoryClick {
     }
 
     override fun categoryData(category: String) {
-        val intent = Intent(AllCategoryActivity@ this, CategoriesActivity::class.java)
+        val intent = Intent(AllCategoryActivity@ this, CategoryActivity::class.java)
         intent.putExtra("category", category)
         startActivity(intent)
     }

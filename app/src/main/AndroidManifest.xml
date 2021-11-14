@@ -21,13 +21,13 @@
             android:name=".view.Activities.DetailedViewActivity"
             android:exported="false" />
         <activity
-            android:name=".view.Activities.AllCategoryActivity"
+            android:name=".view.Activities.AllCategoriesViewActivity"
             android:exported="false" />
         <activity
             android:name=".view.Login.Login"
             android:exported="false" />
         <activity
-            android:name=".view.Activities.CategoriesActivity"
+            android:name=".view.Activities.CategoryActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"

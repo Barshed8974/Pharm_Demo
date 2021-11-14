@@ -3,15 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
+    android:id="@+id/dLayout"
     android:background="@drawable/detailed_category_frame"
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/dImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/img" />
 
     <TextView
+        android:id="@+id/dText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -22,7 +25,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/dPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
