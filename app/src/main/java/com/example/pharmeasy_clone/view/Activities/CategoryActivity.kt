@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.activity_detailed_view.*
 class CategoryActivity : AppCompatActivity(), GetDetails {
     private val homeViewModel: HomeViewModel = HomeViewModel()
     private lateinit var cate: String
+    lateinit var list: List<DataModel>
+    private var i = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_categories)
@@ -30,17 +32,31 @@ class CategoryActivity : AppCompatActivity(), GetDetails {
             cate = intent.getStringExtra("category").toString()
             topTitle.text = cate
         }
-        setRecyclerView(homeViewModel.getDetailedList())
+        list = homeViewModel.getDetailedList()
+        setRecyclerView(list)
         ivCart.setOnClickListener {
             startActivity(Intent(CategoryActivity@ this, CartActivity::class.java))
         }
         ivSearch.setOnClickListener {
             startActivity(Intent(CategoryActivity@ this, SearchActivity::class.java))
         }
+        sortBtn.setOnClickListener {
+            if (i == 0) i = 1
+            if (i == 1) {
+                list = list.sortedBy { it.price }
+                setRecyclerView(list)
+                i = 2
+            } else {
+                list = list.sortedByDescending { it.price }
+                setRecyclerView(list)
+                i = 1
+            }
+        }
+
     }
 
     private fun setRecyclerView(list: List<DataModel>) {
-        var updatedList = mutableListOf<DataModel>()
+        var updatedList = ArrayList<DataModel>()
         list.forEach {
             if (it.category == cate)
                 updatedList.add(it)

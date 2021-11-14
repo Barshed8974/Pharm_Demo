@@ -11,10 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.pharmeasy_clone.R
 import com.example.pharmeasy_clone.Repository.Database.CategoryModel
 import com.example.pharmeasy_clone.Repository.Database.DataModel
-import com.example.pharmeasy_clone.view.Activities.AllCategoriesViewActivity
-import com.example.pharmeasy_clone.view.Activities.CartActivity
-import com.example.pharmeasy_clone.view.Activities.CategoryActivity
-import com.example.pharmeasy_clone.view.Activities.DetailedViewActivity
+import com.example.pharmeasy_clone.view.Activities.*
 import com.example.pharmeasy_clone.view.Adapters.Interfaces.OnCategoryClick
 import com.example.pharmeasy_clone.view.Adapters.ViewPagerAdapter
 import com.example.pharmeasy_clone.view.HomeViewModel
@@ -42,6 +39,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCategoryClick {
 
         ivCart.setOnClickListener {
             startActivity(Intent(context, CartActivity::class.java))
+        }
+        searchBar.setOnClickListener {
+            startActivity(Intent(context, SearchActivity::class.java))
         }
     }
 

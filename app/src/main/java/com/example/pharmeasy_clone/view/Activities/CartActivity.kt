@@ -28,6 +28,10 @@ class CartActivity : AppCompatActivity(), CartOnClick {
             list = it
             setCartRecyclerView(list)
         })
+
+        placeOrder.setOnClickListener {
+            startActivity(Intent(CartActivity@ this, PlaceOrderActivity::class.java))
+        }
     }
 
     private fun setCartRecyclerView(list: List<RoomEntity>) {
@@ -36,6 +40,12 @@ class CartActivity : AppCompatActivity(), CartOnClick {
             adapter = cartAdapter
             layoutManager = LinearLayoutManager(context)
         }
+
+        var total = 0
+        for (item: RoomEntity in list) {
+            total += item.price * item.quantity
+        }
+        totalPrice.text = total.toString()
     }
 
     override fun onDelete(roomEntity: RoomEntity) {
